@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+
+#main-image {
+    max-width: 100%;
+    height: auto;
+}
+
+table {
+    margin: 0 auto; /* Centralizes the table */
+    width: 90%; /* Adjust as needed */
+    /* Additional styling */
+}
