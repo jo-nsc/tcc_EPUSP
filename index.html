@@ -23,7 +23,7 @@
             </p>
 
             
-            <img src="https://money.gigamundo.com/wp-content/uploads/2020/12/Credit-card-fraud-top1.jpg">
+            
 
         <h3>Problem Statement</h3>
 
@@ -41,14 +41,28 @@
                 Answering these questions enables us to reduce the computational cost of Convolutional Neural Network based solutions by simply reducing the resolution of pre trained models
             </p>
 
-            <img src="https://iili.io/HCGrOEQ.png">
-
         <h3>Metodology</h3>
+        <ul>
+            <li>We use two well-known benchmarks, CIFAR-10 and ImageNet, and popular CNN architectures: NasNet, ResNet, and MobileNet</li>
+            <li>
+                <strong>Main Experiments</strong>
+                <ol>
+                    <li>Reduce the resolution of pre-trained CNNs and evaluate the floating points operations (FLOPs) and accuracy compared to the original model</li>
+                    <li>Select the resolution randomly from a set of pre-defined resolutions, and evaluate the FLOPs and accuracy compared to the original model</li>
+                </ol>
+            </li>
+        </ul>
+        
+        <img src="https://github.com/jo-nsc/tcc_EPUSP/blob/main/images/reducing_resolution.png?raw=true">
             <p>
                 In a GPU-enabled environment and using a highly imbalanced tabular dataset with millions of card payment transactions labeled as fradulent or not, a whole data pipeline was developed from scratch to train, validate, optimize, test and compare two GBDT and four DL models.
                 Furthermore, several techniques, such as over sampling and adapted loss function, were discussed and used to compensate the data imbalancing.
             </p>
 
+            <img src="https://github.com/jo-nsc/tcc_EPUSP/blob/main/images/random_resolution_selector_diagram.png?raw=true">
+            
+
+            
         <h3>Results</h3>
             <p>
                 The results showed that the GBDT models outperformed so far the DL ones in all three metrics: performance by F1 score, training time and ease of code implementation.
