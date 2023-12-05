@@ -16,58 +16,65 @@
     
         <h3>Introduction</h3>
             <p>
-                In the realm of computer vision, Convolutional Neural Networks (CNNs) have established a stronghold, particularly excelling in tasks like image classification. 
-                However, as the field advances with newer CNN models and higher image resolutions, there's an inevitable surge in computational costs. This escalation poses challenges in terms of portability and the requirements for computational resources. 
-                Addressing this critical issue, our study delves into the impact of image resolution on CNNs, seeking a delicate balance between maintaining accuracy and managing the heightened demands for memory and processing. Central to our investigation is the aspiration to pare down network parameters, thereby enhancing the suitability of these networks for devices with lower computational capabilities, such as mobile phones. 
-                This approach aims to make advanced CNN capabilities more accessible and efficient in less powerful devices, opening up broader possibilities for their application.
+            Convolutional Neural Networks (CNNs) are renowned for their proficiency in computer vision tasks, particularly in image classification.
+            However, advancements in CNN models coupled with the demand for higher image resolutions have led to escalated computational costs, thereby impacting their portability and the requisite computational resources. 
+            This study investigates the influence of image resolution on CNN performance, seeking an equilibrium between accuracy and the associated memory and processing demands. 
+            The ultimate aim is to reduce the number of network parameters, thus optimizing CNNs for use in devices with limited resources, such as mobile phones.
             </p>
+          
 
             
             
 
         <h3>Problem Statement</h3>
-
             <p>
-                Research Questions
+                <strong>Research Questions</strong>
             </p>
             <p>
-                1.Is it possible to reduce the resolution of a trained Neural Network model and keep its predictive capacity?
+                1. Is it possible to reduce the resolution of a trained Neural Network model and keep its predictive capacity? 
             </p>
             <p>
-                2. Is it possible to systematically encounter a resolution for which the model keeps its predictive ability?
+                2. Is it possible to systematically encounter a resolution for which the model keeps its predictive ability? 
             </p>
-
             <p>
-                Answering these questions enables us to reduce the computational cost of Convolutional Neural Network based solutions by simply reducing the resolution of pre trained models
+                Answering these questions enables us to reduce the computational cost of Convolutional Neural Network based solutions by simply reducing the resolution of pre trained models 
             </p>
-
-        <h3>Metodology</h3>
-        <ul>
-            <li>We use two well-known benchmarks, CIFAR-10 and ImageNet, and popular CNN architectures: NasNet, ResNet, and MobileNet</li>
-            <li>
-                <strong>Main Experiments</strong>
-                <ol>
-                    <li>Reduce the resolution of pre-trained CNNs and evaluate the floating points operations (FLOPs) and accuracy compared to the original model</li>
-                    <li>Select the resolution randomly from a set of pre-defined resolutions, and evaluate the FLOPs and accuracy compared to the original model</li>
-                </ol>
-            </li>
-        </ul>
         
-        <img src="https://github.com/jo-nsc/tcc_EPUSP/blob/main/images/reducing_resolution.png?raw=true">
+        <h3>Metodology</h3>
             <p>
-                In a GPU-enabled environment and using a highly imbalanced tabular dataset with millions of card payment transactions labeled as fradulent or not, a whole data pipeline was developed from scratch to train, validate, optimize, test and compare two GBDT and four DL models.
-                Furthermore, several techniques, such as over sampling and adapted loss function, were discussed and used to compensate the data imbalancing.
+                We use two well-known benchmarks, CIFAR-10 and ImageNet, and popular CNN architectures: NasNet, ResNet, and MobileNet
+            </p>
+            <p>
+                <strong>Main Experiments</strong>
+            </p>
+            <p>
+                1. Reduce the resolution of pre-trained CNNs and evaluate the floating points operations (FLOPs) and accuracy compared to the original model
+            </p>
+            
+            <figure>
+                <img src="https://github.com/jo-nsc/tcc_EPUSP/blob/main/images/reducing_resolution.png?raw=true" id="reduction">
+                <figcaption>Resolution Reduction.</figcaption>
+            </figure>
+
+            
+            <p>
+                2. Select the resolution randomly from a set of pre-defined resolutions, and evaluate the FLOPs and accuracy compared to the original model
             </p>
 
-            <img src="https://github.com/jo-nsc/tcc_EPUSP/blob/main/images/random_resolution_selector_diagram.png?raw=true">
+        
+        
+            <figure>
+                <img src="https://github.com/jo-nsc/tcc_EPUSP/blob/main/images/random_resolution_selector_diagram.png?raw=true" id="random">
+                <figcaption>Random Resolution Selector.</figcaption>
+            </figure>
             
-
+        
+            
+            <p>
+                2. Select the resolution randomly from a set of pre-defined resolutions, and evaluate the FLOPs and accuracy compared to the original model
+            </p>
             
         <h3>Results</h3>
-            <p>
-                The results showed that the GBDT models outperformed so far the DL ones in all three metrics: performance by F1 score, training time and ease of code implementation.
-                And after several optimization steps and techniques, the XGBoost model ended up performing greatly on the considered dataset, keeping the number of false positives low and increasing significantly the number of true positives.
-            </p>
               <table border="1">
                 <caption>Results</caption>
                 <tr>
@@ -101,6 +108,65 @@
                     <td>52.40</td>
                 </tr>
             </table>
+
+            <table border="1">
+                <tr>
+                    <th>Resolution</th>
+                    <th>FLOPs Drop (%)</th>
+                    <th>Accuracy Drop (%)</th>
+                </tr>
+                <tr>
+                    <td>(HE, Y.; ZHANG, X.; SUN, J.)</td>
+                    <td>20.00</td>
+                    <td>1.70</td>
+                </tr>
+                <tr>
+                    <td>(WANG et al., 2018)</td>
+                    <td>20.00</td>
+                    <td>2.00</td>
+                </tr>
+                <tr>
+                    <td>(HE et al., 2018)</td>
+                    <td>20.00</td>
+                    <td>1.40</td>
+                </tr>
+                <tr>
+                    <td>Ours (210 x 210)</td>
+                    <td>3.90</td>
+                    <td>1.22</td>
+                </tr>
+                <tr>
+                    <td>Ours (196 x 196)</td>
+                    <td>14.72</td>
+                    <td>2.90</td>
+                </tr>
+                <tr>
+                    <td>Ours (182 x 182)</td>
+                    <td>29.26</td>
+                    <td>2.70</td>
+                </tr>
+                <tr>
+                    <td>Ours (168 x 168)</td>
+                    <td>38.49</td>
+                    <td>5.13</td>
+                </tr>
+                <tr>
+                    <td>Ours (154 x 154)</td>
+                    <td>49.50</td>
+                    <td>6.57</td>
+                </tr>
+                <tr>
+                    <td>Ours (140 x 140)</td>
+                    <td>57.26</td>
+                    <td>10.72</td>
+                </tr>
+                <tr>
+                    <td>Ours (Random Resolution)</td>
+                    <td>17.30</td>
+                    <td>2.42</td>
+                </tr>
+            </table>
+            
     </body>
 
 </html>

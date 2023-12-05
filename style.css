@@ -7,6 +7,16 @@ body {
     height: auto;
 }
 
+#reduction {
+    max-width: 70%;
+    height: auto;
+}
+
+#random {
+    max-width: 70%;
+    height: auto;
+}
+
 table {
     margin: 0 auto; /* Centralizes the table */
     width: 90%; /* Adjust as needed */
